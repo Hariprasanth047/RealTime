@@ -19,7 +19,7 @@ export const SocketProvider = ({ children }) => {
       return
     }
 
-    const socket = io('http://localhost:5000', {
+    const socket = io(import.meta.env.VITE_SERVER_URL || 'http://localhost:5000', {
       auth: { token },
       query: { token },
       transports: ['websocket', 'polling'],
